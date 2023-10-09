@@ -25,7 +25,7 @@ class EditEmpFrm extends Component {
         }
 
         axios
-            .put("/api/emp/update", formData)
+            .put("/emp/emp/update", formData)
             .then((res) => {
                 message.info("修改商品成功");
                 this.props.closeModal();
@@ -52,7 +52,7 @@ class EditEmpFrm extends Component {
                 <Form onFinish={this.onFinish} onFinishFailed={this.onFinishFailed} ref={this.formRef}>
                     <Form.Item
                         label="员工姓名"
-                        name="name"
+                        name="empName"
                         rules={[{ required: true, message: "员工姓名" }]}
                     >
                         <Input />
@@ -64,17 +64,9 @@ class EditEmpFrm extends Component {
                         rules={[{ required: true}]}
                     >
                         <Radio.Group>
-                            <Radio value={"F"}>男</Radio>
-                            <Radio value={"M"}>女</Radio>
+                            <Radio value={"男"}>男</Radio>
+                            <Radio value={"女"}>女</Radio>
                         </Radio.Group>
-                    </Form.Item>
-
-                    <Form.Item
-                        label="年龄"
-                        name="age"
-                        rules={[{ required: true, message: "年龄" }]}
-                    >
-                        <Input />
                     </Form.Item>
 
                     <Form.Item

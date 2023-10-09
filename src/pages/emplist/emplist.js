@@ -25,13 +25,8 @@ class EmpList extends Component {
         },
         {
             title: 'Name',
-            dataIndex: 'name',
+            dataIndex: 'empName',
             key: 'name',
-        },
-        {
-            title: 'Age',
-            dataIndex: 'age',
-            key: 'age',
         },
         {
             title: 'sex',
@@ -93,14 +88,14 @@ class EmpList extends Component {
         // for (const key in params) {
         //     formData.append(key,params[key])
         // }
-        axios.get("/api/emp/list",{params}).then((res) => {
+        axios.get("/emp/emp/list",{params}).then((res) => {
            console.log(res);
             this.setState({ dataSource: res.data.data,total:res.data.count });
         });
     };
     // 删除
     handleDelete = (pid) => {
-        axios.delete("/api/emp/"+pid).then((res) => {
+        axios.delete("/emp/emp/"+pid).then((res) => {
             console.log(res.data.code)
             if (res.data.code === 0) {
                 message.info("删除成功");
@@ -122,10 +117,10 @@ class EmpList extends Component {
     };
 
     handleEdit = (pid) => {
-        axios.get("/api/emp/"+pid).then((res) => {
+        axios.get("/emp/emp/"+pid).then((res) => {
             console.log(res.data.data)
             this.setState({
-                editData: res.data.data.emp,
+                editData: res.data.data,
                 showEditProductDialog: true,
             });
         });

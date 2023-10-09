@@ -21,7 +21,7 @@ class AddEmpFrm extends Component {
             formData.append(key,params[key])
         }
         axios
-            .post("/api/emp", formData)
+            .post("/emp/emp", formData)
             .then((res) => {
                 message.info("添加商品成功");
                 this.props.closeModal();
@@ -37,7 +37,7 @@ class AddEmpFrm extends Component {
                 <Form onFinish={this.onFinish} onFinishFailed={this.onFinishFailed}>
                     <Form.Item
                         label="员工姓名"
-                        name="name"
+                        name="empName"
                         rules={[{ required: true, message: "员工姓名" }]}
                     >
                         <Input />
@@ -52,14 +52,6 @@ class AddEmpFrm extends Component {
                             <Radio value={"F"}>男</Radio>
                             <Radio value={"M"}>女</Radio>
                         </Radio.Group>
-                    </Form.Item>
-
-                    <Form.Item
-                        label="年龄"
-                        name="age"
-                        rules={[{ required: true, message: "年龄" }]}
-                    >
-                        <Input />
                     </Form.Item>
 
                     <Form.Item

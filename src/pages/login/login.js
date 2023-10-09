@@ -19,7 +19,7 @@ const Login = () => {
         for (const key in values) {
             formData.append(key,values[key])
         }
-        axios.post("/api/user/login",formData).then((res) => {
+        axios.post("/user/user/login",formData).then((res) => {
             console.log(res);
             if (res.data.message === "success") {
                 changePath();
@@ -54,7 +54,7 @@ const Login = () => {
             >
                 <Form.Item
                     label="账号"
-                    name="username"
+                    name="userName"
                     rules={[
                         {
                             required: true,
@@ -90,7 +90,7 @@ const Login = () => {
                 </Form.Item>
                 <Image style={{
                 }}
-                       src="/api/captcha"
+                       src="/user/captcha"
                 />
                 <Form.Item
                     wrapperCol={{
